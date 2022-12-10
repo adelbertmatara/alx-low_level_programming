@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - main block
@@ -7,30 +8,42 @@
 
 int main(void)
 {
-	int i, j;
-	int a, b, c, d;
+	int c = 0;
+	int f_d;
+	int l_d;
 
-	for (i = 0; i < 100; i++)
+	int c2;
+	int f_d2;
+	int l_d2;
+
+	while (c <= 98)
 	{
-		a = i / 10; /* doubles fnum */
-		b = i % 10; /* singles fnum */
-
-		for (j = 0; j < 100; j++)
+		f_d = (c / 10 + '0');
+		l_d = (c % 10 + '0');
+		c2 = 0;
+		while (c2 <= 99)
 		{
-			c = j / 10; /* doubles snum */
-			d = j % 10; /* singles snum */
-			
-			if (a < c || (a == c && b < d))
+			f_d2 = (c2 / 10 + '0');
+			l_d2 = (c2 % 10 + '0');
+
+			if (c < c2)
 			{
-				putchar(a + '0');															putchar(b + '0');															putchar(32);																putchar(c + '0');															putchar(d + '0');
-																					if (!(a == 9 && b == 8))														{																		putchar(44);
-					putchar(32);
-					putchar(10);
-																					}
+				putchar(f_d);
+				putchar(l_d);
+				putchar(' ');
+				putchar(f_d2);
+				putchar(l_d2);
+
+				if (c != 98)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
+			c2++;
 		}
+		c++;
 	}
-	putchar(10);
-	
+	putchar('\n');
 	return (0);
 }
